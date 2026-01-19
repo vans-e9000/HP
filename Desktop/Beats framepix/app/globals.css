@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --beats-bg-primary: #FFFFFF;
+  --beats-bg-secondary: #F8F8F8;
+  --beats-bg-tertiary: #F0F0F2;
+  --beats-red: #E21836;
+  --beats-black: #000000;
+  --beats-gray: #6E6E73;
+  --beats-gray-light: #A1A1A6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--beats-bg-primary);
+  color: var(--beats-black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glassmorphism-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .text-gradient-beats {
+    background: linear-gradient(135deg, #000000 0%, #E21836 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .tracking-tighter {
+    letter-spacing: -0.05em;
+  }
+
+  .leading-tight {
+    line-height: 1.1;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes charReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotateX(-90deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Section styling */
+.content-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+/* Card styling for content sections */
+.feature-card {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Typography - Using Syne for headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-syne), sans-serif;
+  font-weight: 700;
+  color: var(--beats-black);
+  letter-spacing: -0.03em;
+}
+
+/* Better paragraph readability */
+p {
+  color: var(--beats-gray);
+  line-height: 1.6;
+}
+
+/* Magnetic button effect */
+.magnetic-btn {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magnetic-btn:hover {
+  transform: scale(1.05);
+}
